@@ -1,0 +1,15 @@
+<!--components/moreSong_item/moreSong_item.wxml-->
+<view class="item" bindtap="onSongItemTap">
+  <view class="index">{{index}}</view>
+  <view class="info">
+    <view>{{itemData.name}}</view>
+    <view class="source">
+    <image class="icon" src="/assets/images/icons/sq_icon.png"></image>
+    <text>{{itemData.ar[0].name}}</text>
+    </view>
+  </view>
+  <view class="van-icon">
+  <van-icon name="video" size="40rpx" style="margin-right: 35rpx;"></van-icon>
+  <van-icon name="weapp-nav" size="40rpx"></van-icon>
+  </view>
+</view>

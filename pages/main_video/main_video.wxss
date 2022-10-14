@@ -1,0 +1,9 @@
+/* pages/main_video/main_video.wxss */
+.videoList{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.videoList .listItem{
+  width: 48%;
+}

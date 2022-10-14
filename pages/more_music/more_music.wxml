@@ -1,0 +1,8 @@
+<!--pages/more_music/more_music.wxml-->
+<view class="recommandList">
+<menu-header wx:if="{{type==='menu'}}" menuInfo="{{menuInfo}}"></menu-header>
+  <area-header title="{{title}}" hasMore="{{false}}" wx:else></area-header>
+  <block wx:for="{{showList}}" wx:key="id">
+    <moreSong-item itemData="{{item}}" index="{{index+1}}" bindtap="onMoreSongItemTap" data-index="{{index}}"></moreSong-item>
+  </block>
+</view>

@@ -1,0 +1,46 @@
+<!--pages/main_music/main_music.wxml-->
+<van-search value="{{searchValue}}" shape="round" placeholder="请输入搜索关键词" background="#fafafa" bind:click-input="onSearchClick">
+</van-search>
+<swiper class="banner" circular indicator-dots style="height:{{bannerHeight}}rpx;">
+  <block wx:for="{{bannerList}}" wx:key="targetId">
+    <swiper-item class="item">
+      <image class="image" src="{{item.imageUrl}}" mode="widthFix" bindload="onBannerImageLoad"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="recommand" wx:if="{{recommandSongList.length}}">
+  <area-header title="推荐歌曲" bind:moreClick="onRecommandMoreClick"></area-header>
+  <view class="recommandList">
+    <block wx:for="{{recommandSongList}}" wx:key="id">
+      <recommandSong-item itemData="{{item}}" bindtap="onRecommandSongItemTap" data-index="{{index}}"></recommandSong-item>
+    </block>
+  </view>
+</view>
+<view class="hot_menu">
+  <area-header title="热门歌单" bind:moreClick="onMenuMoreClick"></area-header>
+  <scrollx-list songMenuList="{{hotMenuList}}"></scrollx-list>
+</view>
+<view class="recommand_menu">
+  <area-header title="推荐歌单" bind:moreClick="onMenuMoreClick"></area-header>
+  <scrollx-list songMenuList="{{recommandMenuList}}"></scrollx-list>
+</view>
+<view class="ranking" wx:if="{{rankingsShow}}">
+  <area-header title="巅峰榜" hasMore="{{false}}"></area-header>
+  <view class="rankingList">
+    <block wx:for="{{rankings}}" wx:key="id">
+      <ranking-item itemData="{{item}}"></ranking-item>
+    </block>
+  </view>
+</view>
+<view class="play-bar" wx:if="{{currentSongIndex!==-1}}" bindtap="onPlayBarTap">
+  <view class="play-bar-left">
+    <image class="play-bar-album {{isPlay?'album-anim':''}}" src="{{currentSongList[currentSongIndex].al.picUrl}}"></image>
+    <view class="play-bar-songName">{{currentSongList[currentSongIndex].name}}</view>
+    <view class="play-bar-songerName">-{{currentSongList[currentSongIndex].ar[0].name}}</view>
+  </view>
+  <view class="play-bar-right">
+  <image src="../../assets/images/music/play_icon.png" wx:if="{{!isPlay}}" class="play-pause" catchtap="onPlayOrPause"></image>
+  <image src="../../assets/images/music/pause_icon.png" wx:else class="play-pause" catchtap="onPlayOrPause"></image>
+  <image src="../../assets/images/music/playlist_icon.png" class="music-list"></image>
+  </view>
+</view>

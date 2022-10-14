@@ -1,0 +1,9 @@
+<!--components/scrollx_list/scrollx_list.wxml-->
+<scroll-view class="menu-list" scroll-x enable-flex>
+  <view class="left"></view>
+  <block wx:for="{{songMenuList}}" wx:key="id">
+    <view class="menu-item">
+      <menu-item itemData="{{item}}"></menu-item>
+    </view>
+  </block>
+</scroll-view>

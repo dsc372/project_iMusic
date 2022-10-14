@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/main_music/main_music",
+    "pages/main_video/main_video",
+    "pages/detail_search/detail_search",
+    "pages/more_music/more_music",
+    "pages/more_menu/more_menu"
+  ],
+  "subPackages": [
+    {
+      "root": "packagePlayer",
+      "name": "player",
+      "pages": ["pages/music_player/music_player"]
+    },
+    {
+      "root": "packageVideo",
+      "name": "video",
+      "pages": ["pages/detail_video/detail_video"]
+    }
+  ],
+  "preloadRule": {
+    "pages/main_music/main_music":{
+      "packages":["player"]
+    },
+    "pages/main_video/main_video":{
+      "packages": ["video"]
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "iMusic",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/main_music/main_music",
+        "text": "音乐",
+        "iconPath": "assets/images/tabbar/music_normal.png",
+        "selectedIconPath": "assets/images/tabbar/music_active.png"
+      },
+      {
+        "pagePath": "pages/main_video/main_video",
+        "text": "视频",
+        "iconPath": "assets/images/tabbar/video_normal.png",
+        "selectedIconPath": "assets/images/tabbar/video_active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,16 @@
+<!--components/nav_bar/nav_bar.wxml-->
+<view class="nav-bar">
+  <view class="status" style="height: {{statusHeight}}px;"></view>
+  <view class="nav" style="height: {{navHeight}}px;">
+    <view class="left" bindtap="onLeftTap">
+    <image src="../../assets/images/icons/arrow-left.png" class="icon"></image>
+    </view>
+    <view class="center">
+    <view class="defalut" wx:if="{{title==='导航标题'}}">{{title}}</view>
+    <view class="slot" wx:else>
+    <slot name="center"></slot>
+    </view>
+    </view>
+    <view class="right"></view>
+  </view>
+</view>

@@ -1,0 +1,13 @@
+/* pages/more_menu/more_menu.wxss */
+page{
+  padding-left:25rpx ;
+}
+.list{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50rpx;
+}
+.playlist{
+  width: 337.5rpx;
+  margin-right: 25rpx;
+}

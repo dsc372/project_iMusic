@@ -1,0 +1,50 @@
+<!--pages/music_player/music_player.wxml-->
+<wxs src="../../../utils/format.wxs" module="format"></wxs>
+<image class="bgcImg" src="{{songInfo.al.picUrl}}" mode="aspectFill"></image>
+<view class="bgcCover"></view>
+<nav-bar title="others">
+  <view class="tabs" slot="center">
+    <block wx:for="{{pageTitles}}" wx:key="*this">
+      <view class="{{currentPage===index?'active':''}}" bindtap="onTabsTap" data-index="{{index}}">{{item}}</view>
+      <view class="midLine" wx:if="{{index!==pageTitles.length-1}}">|</view>
+    </block>
+  </view>
+</nav-bar>
+<swiper bindchange="onSwiperChange" style="height:{{contentHeight}}px" current="{{currentPage}}">
+  <swiper-item class="song">
+    <view class="album" style="margin-bottom:{{screenHeight/35}}rpx;">
+      <image class="image" src="{{songInfo.al.picUrl}}" mode="widthFix"></image>
+    </view>
+    <view class="info" style="margin-bottom:{{screenHeight/20}}rpx;">
+      <view class="songName">{{songInfo.name}}</view>
+      <view class="songerName">{{songInfo.ar[0].name}}</view>
+    </view>
+    <view class="bottom" style="bottom:{{screenHeight/10}}rpx;">
+      <view class="lyric-single" style="margin-bottom: {{screenHeight/30}}rpx;">{{lyric}}</view>
+      <view class="process">
+        <slider block-size="12" class="slider" value="{{currentTime/durationTime*100}}" bindchange="onSliderChange" bindchanging="onSliderChangeing"></slider>
+        <view class="time">
+          <view class="currentTime">{{format.formatTime(currentTime)}}</view>
+          <view class="duration">{{format.formatTime(durationTime)}}</view>
+        </view>
+      </view>
+      <view class="control">
+        <image class="btn mode" src="../../assets/images/player/play_order.png" wx:if="{{playMode===0}}" bindtap="onPlayModeTap"></image>
+        <image class="btn mode" src="../../assets/images/player/play_repeat.png" wx:if="{{playMode===1}}" bindtap="onPlayModeTap"></image>
+        <image class="btn mode" src="../../assets/images/player/play_random.png" wx:if="{{playMode===2}}" bindtap="onPlayModeTap"></image>
+        <image class="btn pre" src="../../assets/images/player/play_prev.png" bindtap="onPreOrNextTap" data-type="pre"></image>
+        <image class="btn play" src="../../assets/images/player/play_pause.png" bindtap="onPlayOrPause" wx:if="{{isPlay}}"></image>
+        <image class="btn play" src="../../assets/images/player/play_resume.png" bindtap="onPlayOrPause" wx:if="{{!isPlay}}"></image>
+        <image class="btn next" src="../../assets/images/player/play_next.png" bindtap="onPreOrNextTap" data-type="next"></image>
+        <image class="btn music" src="../../assets/images/player/play_music.png"></image>
+      </view>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y class="lyricList" scroll-top="{{lyricScrollTop}}" scroll-with-animation>
+      <block wx:for="{{lyricInfos}}" wx:key="time">
+        <view class="lyricLines {{index===lyricIndex?'lyricActive':''}}" style="padding-top:{{index===0?contentHeight-80:0}}rpx ;padding-bottom:{{index===lyricInfos.length-1?contentHeight-80:0}}rpx ;">{{item.text}}</view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+</swiper>

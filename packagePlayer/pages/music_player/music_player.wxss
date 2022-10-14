@@ -1,0 +1,117 @@
+/* pages/music_player/music_player.wxss */
+.bgcImg,
+.bgcCover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.bgcCover {
+  background-color: rgba(0,0,0,.2);
+  backdrop-filter: blur(20rpx);
+}
+
+.tabs{
+  display: flex;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #999;
+}
+.tabs .active{
+  color:#fff;
+}
+.tabs .midLine{
+  margin: 0 8rpx;
+  color: #fff;
+}
+
+.song{
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 40rpx 60rpx;
+  font-size: 28rpx;
+  color: #fff;
+}
+.song .album .image{
+  width: 100%;
+  border-radius: 20rpx;
+}
+.song .info .songName{
+  font-size: 48rpx;
+  font-weight: 600;
+}
+.song .info .songerName{
+  margin-top: 10rpx;
+  font-size: 35rpx;
+}
+.song .lyric-single{
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.song .process{
+  margin-bottom: 10rpx;
+}
+.song .process .slider{
+  margin: 0 0 8rpx 10rpx;
+}
+.song .process .time{
+  display: flex;
+  justify-content: space-between;
+}
+.song .control{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  align-items: center;
+}
+.song .control .btn{
+  width: 60rpx;
+  height: 60rpx;
+}
+.song .control .mode{
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: -20rpx;
+}
+.song .control .play{
+  width: 140rpx;
+  height: 140rpx;
+  margin: 0 -50rpx;
+}
+.song .control .music{
+  width: 72rpx;
+  height: 72rpx;
+  margin-right: -20rpx;
+}
+.bottom{
+  position: fixed;
+  width: 84%;
+}
+
+.lyricList{
+  height: 100%;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+}
+.lyricList ::-webkit-scrollbar{
+  display: none;
+}
+.lyricList .lyricActive{
+  color:rgb(0,172,132);
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 40rpx;
+}
+.lyricLines{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+
+

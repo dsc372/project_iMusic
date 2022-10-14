@@ -1,0 +1,17 @@
+/* components/scrollx_list/scrollx_list.wxss */
+.menu-list{
+  display: flex;
+  height: 300rpx;
+  width: 750rpx;
+  margin-left: -25rpx;
+  padding-bottom: 20rpx;
+}
+.menu-list .left{
+  flex-shrink: 0;
+  width: 25rpx;
+}
+.menu-list .menu-item{
+  flex-shrink: 0;
+  margin-right: 20rpx;
+  width: 220rpx;
+}

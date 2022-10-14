@@ -1,0 +1,5 @@
+/* pages/more_music/more_music.wxss */
+page{
+  padding: 25rpx 25rpx;
+  box-sizing: border-box;
+}
