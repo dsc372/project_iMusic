@@ -46,3 +46,4 @@ audioContext.pause()；
 audioContext.play();但这样会导致报一个play()打断pause()的错误
 可以在进入player页面时通过ID添加一个isSameSong，只有为true时才执行上面的代码
 19.分包、手动对vant处理，使主包大小从690+k降至350+k
+20.历史记录中数组的处理

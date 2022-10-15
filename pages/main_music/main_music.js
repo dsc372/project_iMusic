@@ -43,7 +43,7 @@ Page({
 
   onSearchClick() {
     wx.navigateTo({
-      url: '/pages/detail_search/detail_search',
+      url: '/packageSearch/pages/detail_search/detail_search',
     })
   },
 

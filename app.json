@@ -2,7 +2,6 @@
   "pages": [
     "pages/main_music/main_music",
     "pages/main_video/main_video",
-    "pages/detail_search/detail_search",
     "pages/more_music/more_music",
     "pages/more_menu/more_menu"
   ],
@@ -16,11 +15,16 @@
       "root": "packageVideo",
       "name": "video",
       "pages": ["pages/detail_video/detail_video"]
+    },
+    {
+      "root": "packageSearch",
+      "name": "search",
+      "pages":["pages/detail_search/detail_search"]
     }
   ],
   "preloadRule": {
     "pages/main_music/main_music":{
-      "packages":["player"]
+      "packages":["player","search"]
     },
     "pages/main_video/main_video":{
       "packages": ["video"]

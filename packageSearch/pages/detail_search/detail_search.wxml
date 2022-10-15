@@ -1,0 +1,40 @@
+<!--pages/detail_search/detail_search.wxml-->
+<view class="header">
+  <van-search value="{{searchValue}}" shape="round" placeholder="{{searchDefault}}" background="#fafafa" class="search" bind:change="onSearchChange">
+  </van-search>
+  <view bind:tap="onClick" class="searchAction">搜索</view>
+</view>
+<view class="search-answer" wx:if="{{searchValue}}">
+  <view class="search-answer-list">
+    <block wx:for="{{searchAnswer}}" wx:key="id">
+      <view class="search-answer-list-item" bindtap="onSearchAnswerTap" data-index="{{index}}">
+        <van-icon name="search" color="#999" style="margin: 0 20rpx;"></van-icon>
+        <view class="search-answer-value">{{item.name}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+<view wx:else>
+  <view class="history">
+    <view class="history-header">
+      <view class="history-title">搜索历史：</view>
+      <van-icon name="delete" color="#999" bindtap="onDeleteTap"></van-icon>
+    </view>
+    <view class="history-list">
+      <block wx:for="{{history}}" wx:key="index">
+    <view class="history-item">{{item}}</view>
+    </block></view>
+  </view>
+  <view class="hot-container">
+    <view class="title">热搜榜</view>
+    <view class="hot-list">
+      <block wx:for="{{hotList}}" wx:key="searchWord">
+        <view class="hot-list-item {{index<3?'active':''}}" bindtap="onHotItemTap" data-index="{{index}}">
+          <text class="order">{{index<9?'0'+(index+1):index+1}}</text>
+              <text>{{item.searchWord}}</text>
+              <image class="icon" wx:if="{{item.iconType}}" src="{{item.iconUrl}}" mode="widthFix"></image>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

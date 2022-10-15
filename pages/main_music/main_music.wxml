@@ -24,7 +24,7 @@
   <area-header title="推荐歌单" bind:moreClick="onMenuMoreClick"></area-header>
   <scrollx-list songMenuList="{{recommandMenuList}}"></scrollx-list>
 </view>
-<view class="ranking" wx:if="{{rankingsShow}}">
+<view class="ranking"  style="padding-bottom:{{currentSongIndex!==-1?'120':'20'}}rpx ;" wx:if="{{rankingsShow}}">
   <area-header title="巅峰榜" hasMore="{{false}}"></area-header>
   <view class="rankingList">
     <block wx:for="{{rankings}}" wx:key="id">
